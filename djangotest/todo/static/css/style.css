@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    color: darkgrey;
+    stroke-width: 2px;
+    width: 100%;
+}
+.footer {
+position:inherit;
+left: 0;
+bottom: 0;
+width: 100%;
+padding-top: 4px;
+background-color: #303030;
+color: rgb(237, 11, 11);
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block data %}
+<div class="container">
+    <div class="col-md-3 mt-5">
+        <h1>Update Product details</h1>
+        <hr>
+        <form action="" method="post">
+            {%  csrf_token %}
+        
+        <div class="mb-3">
+            <label for="pname" class="form-label">Product name</label>
+            <input type="text" class="form-control" id="pname" name="pname" value="{{data.pname}}">
+        </div>
+        <div class="mb-3">
+            <label for="pdesc" class="form-label">Product Description</label>
+            <textarea class="form-control" id="pdesc" name="pdesc" rows="3">{{data.pdesc}}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Product price</label>
+            <input type="text" class="form-control" id="price" name="price" value="{{data.price}}">
+        </div>
+        <div class="mb-3">
+        <select class="form-select" name="category" value="{{data.cat}}" aria-label="Default select example">
+            <option value="E">Electronics</option>
+            <option value="C">Clothing</option>
+            <option value="B">Books</option>
+        </select>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Update">
+        </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock data %}

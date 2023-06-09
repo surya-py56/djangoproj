@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django site</title>
+    <style>
+        table{
+            text-align: center;
+            border-spacing:6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <table>
+        <tr><th>Data sent</th></tr>
+        <tr>
+            <td>{{data1}}</td>
+        </tr>
+        <tr>
+            <td>{{data2}}</td>
+        </tr>
+        <tr>
+            <td>{{data3.12}}</td>
+        </tr>
+
+    </table>
+    {% if x > y %}
+    <i>{{x}} is greater</i>
+    {% else %}
+    <i>{{y}} is greater</i>
+    {% endif %}
+</br>
+</br>
+{% for i in seq %}
+    <p>{{i}}</p>
+    {% endfor %}
+
+</body>
+</html>

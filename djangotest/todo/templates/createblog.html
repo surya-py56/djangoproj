@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block data %}
+    <form method="post" action="/store">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Heading:</td>
+                <td><input type="text" name="bhead"> </td>
+            </tr>
+            <tr>
+                <td>Category:</td>
+                <td><input type="text" name="bcat"> </td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>
+                    <textarea name="bdes" rows="10" cols="30"></textarea>
+                </td>
+            </tr>
+            <tr>
+              <td> <input type="submit" name="send" value="Post"></td> 
+            </tr>
+        </table>
+
+    </form>
+    {% endblock %}
