@@ -19,6 +19,7 @@ class MyPricelist(admin.SimpleListFilter):
             return queryset.filter(price__lt=5000)
         else:
             return queryset.all()
+            
 
 class ProductAdmin(admin.ModelAdmin):
     list_display=['id','pname','price']
