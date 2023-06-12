@@ -10,10 +10,18 @@ urlpatterns = [
     path('products',views.products),
     path('blog',views.blog),
     path('store',views.store),
-    path('pdashboard',views.dash_product)
+    path('pdashboard',views.dash_product),
+    #path('elec',views.filterelec),
+    #path('book',views.filterbook),
+    path('filter/<vcat>',views.filter),
+    path('pfilter/<pr>',views.pfilter),
+    path('sort/<sv>',views.sortfil)
+    
+    ]
+
 
     
-]
+
 ''' urlpatterns list contain list of patterns of urls
     we need a function to define paths
     path('url to be mapped',views.functionname,name=urlname)

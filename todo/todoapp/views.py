@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from todoapp.models import Product
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -84,3 +85,58 @@ def delete(request,rid):
     x=Product.objects.filter(id=rid)
     x.update(is_deleted='Y')
     return redirect('/pdashboard')
+'''
+def filterelec(request):
+    q1=Q(cat='E')
+    q2=Q(is_deleted='N')
+    rec=Product.objects.filter(q1 & q2)
+    contents={}
+    contents['data']=rec
+    return render(request,'product-dashboard.html',contents)
+def filtercloth(request):
+    q1=Q(cat='C')
+    q2=Q(is_deleted='N')
+    rec=Product.objects.filter(q1 & q2)
+    contents={}
+    contents['data']=rec
+    return render(request,'product-dashboard.html',contents)
+def filterbook(request):
+    q1=Q(cat='B')
+    q2=Q(is_deleted='N')
+    rec=Product.objects.filter(q1 & q2)
+    contents={}
+    contents['data']=rec
+    return render(request,'product-dashboard.html',contents)
+'''
+def filter(request,vcat):
+    if vcat=='elec':
+        f='E'
+    elif vcat=='book':
+        f='B'
+    else:
+        f='C'
+    q1=Q(cat=f)
+    q2=Q(is_deleted='N')
+    rec=Product.objects.filter(q1 & q2)
+    contents={}
+    contents['data']=rec
+    return render(request,'product-dashboard.html',contents)
+def pfilter(request,pr):
+    if pr=='>10000':
+        q1=Q(price__gt=10000)
+    elif pr=='<10000':
+        q1=Q(price__lte=10000)
+    q2=Q(is_deleted='N')
+    rec=Product.objects.filter(q1 & q2)
+    contents={}
+    contents['data']=rec
+    return render(request,'product-dashboard.html',contents)
+
+def sortfil(request,sv):
+    if sv=='ltoh':
+        rec=Product.objects.filter(is_deleted='N').order_by('price')
+    elif sv=='htol':
+        rec=Product.objects.filter(is_deleted='N').order_by('-price')
+    contents={}
+    contents['data']=rec
+    return render(request,'product-dashboard.html',contents)
