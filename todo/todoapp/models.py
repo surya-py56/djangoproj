@@ -8,3 +8,5 @@ class Product(models.Model): #Appname_tablename .,, todoapp_Product
     price=models.FloatField()
     cat=models.CharField(max_length=30)
     is_deleted=models.CharField(max_length=5) 
+    def __str__(self):
+        return self.pname
