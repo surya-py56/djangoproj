@@ -140,3 +140,14 @@ def sortfil(request,sv):
     contents={}
     contents['data']=rec
     return render(request,'product-dashboard.html',contents)
+def filtrange(request):
+    if request.method=="POST":
+        fr=request.POST['from']
+        to=request.POST['to']
+        q1=Q(price__gte=fr)
+        q2=Q(price__lte=to)
+        q3=Q(is_deleted='N')
+        rec=Product.objects.filter(q1 & q2 & q3)
+        contents={}
+        contents['data']=rec
+        return render(request,'product-dashboard.html',contents)

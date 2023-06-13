@@ -15,7 +15,8 @@ urlpatterns = [
     #path('book',views.filterbook),
     path('filter/<vcat>',views.filter),
     path('pfilter/<pr>',views.pfilter),
-    path('sort/<sv>',views.sortfil)
+    path('sort/<sv>',views.sortfil),
+    path('filtrange',views.filtrange)
     
     ]
 
