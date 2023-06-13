@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from todoapp.models import Product
 from django.db.models import Q
+from todoapp.forms import EmpForms,ProdForms
 
 # Create your views here.
 def index(request):
@@ -151,3 +152,21 @@ def filtrange(request):
         contents={}
         contents['data']=rec
         return render(request,'product-dashboard.html',contents)
+
+def empform(request):
+    if request.method=='POST':
+        name=request.POST['name']
+        salary=request.POST['sal']
+        city=request.POST['city']
+        print(name)
+        print(salary)
+        print(city)
+    else:
+        ef=EmpForms()
+        return render(request,'formapi.html',{'forms':ef})
+def prodform(request):
+    if request.method=='POST':
+        pass
+    else:
+        pf=ProdForms()
+        return render(request,'modelform.html',{'mform':pf})

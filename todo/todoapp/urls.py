@@ -16,7 +16,9 @@ urlpatterns = [
     path('filter/<vcat>',views.filter),
     path('pfilter/<pr>',views.pfilter),
     path('sort/<sv>',views.sortfil),
-    path('filtrange',views.filtrange)
+    path('filtrange',views.filtrange),
+    path('formapi',views.empform),
+    path('modelform',views.prodform)
     
     ]
 
